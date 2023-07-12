@@ -13,24 +13,28 @@ public class Task_1 {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        driver.get("https://dan-it.com.ua/");
-        System.out.println(driver.getTitle());
-        Set<String> window1 = driver.getWindowHandles();
-        ((JavascriptExecutor) driver).executeScript("window.open");
-        Set<String> window2 = driver.getWindowHandles();
-        window2.removeAll(window1);
-        String newDescriptor = window2.iterator().next();
-        driver.switchTo().window(newDescriptor);
         driver.get("https://guinnessworldrecords.com/");
+        System.out.println(driver.getTitle());
+        Set<String> windowHandles1 = driver.getWindowHandles();
+        ((JavascriptExecutor) driver).executeScript("window.open");
+        Set<String> windowHandles2 = driver.getWindowHandles();
+        windowHandles2.removeAll(windowHandles1);
+        String newDescriptor = windowHandles2.iterator().next();
+        driver.switchTo().window(newDescriptor);
+        driver.get("https://terrikon.com/");
 
-        Set<String> window3 = driver.getWindowHandles();
+      /*  Set<String> window3 = driver.getWindowHandles();
         ((JavascriptExecutor) driver).executeScript("window.open");
         Set<String> window4 = driver.getWindowHandles();
         window4.removeAll(window3);
-        driver.switchTo().window(newDescriptor);
+        driver.switchTo().window(window4.iterator().next());
+        driver.get("https://guinnessworldrecords.com/");
+        System.out.println(driver.getTitle());
+        driver.close();
+        Thread.sleep(2000);
+        driver.quit();
 
-
-
+        */
 
     }
 }
