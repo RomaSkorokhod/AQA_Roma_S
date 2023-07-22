@@ -1,4 +1,4 @@
-package utils.hw8;
+package utils.lesson8;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
