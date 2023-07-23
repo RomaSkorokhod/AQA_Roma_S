@@ -37,7 +37,7 @@ public class DataProviderEx {
 
     @Test(dataProvider = "loginWithUsers")
     public void loginTest(String login, String password) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/kudayeusiarhei/Desktop/chromedriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         driver.manage().window().maximize();
