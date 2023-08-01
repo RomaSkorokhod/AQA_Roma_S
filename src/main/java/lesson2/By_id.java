@@ -14,5 +14,7 @@ public class By_id {
         driver.get("https://demoqa.com/text-box");
         WebElement element = driver.findElement(By.id("userName"));
         element.sendKeys("Roma");
+
+        driver.quit();
     }
 }
