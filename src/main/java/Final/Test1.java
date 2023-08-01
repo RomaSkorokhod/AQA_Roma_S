@@ -25,36 +25,48 @@ public class Test1 {
         categorySelect.selectByValue("8");
 
         Actions actions = new Actions(driver);
-        WebElement type1 = driver.findElements(By.id("brandTooltipBrandAutocompleteInput-brand")).get(0);
-        actions.moveToElement(type1).click().build().perform();
-        WebElement type2 = driver.findElements(By.xpath("//a[@data-value='48']")).get(0);
-        actions.moveToElement(type2).click().build().perform();
+        WebElement brand1 = driver.findElements(By.id("brandTooltipBrandAutocompleteInput-brand")).get(0);
+        actions.moveToElement(brand1).click().build().perform();
+        WebElement brand2 = driver.findElements(By.xpath("//a[@data-value='48']")).get(0);
+        actions.moveToElement(brand2).click().build().perform();
 
         WebElement model1 = driver.findElements(By.id("brandTooltipBrandAutocomplete-model")).get(0);
         actions.moveToElement(model1).click().build().perform();
         WebElement model2 = driver.findElements(By.xpath("//a[@data-value='35249']")).get(0);
         actions.moveToElement(model2).click().build().perform();
 
+//        VIN
+        driver.findElement(By.xpath("//label[@for='verifiedVIN']")).click();
+
         WebElement region = driver.findElement(By.id("brandTooltipBrandAutocompleteInput-region"));
-        region.sendKeys("Київ");
+        region.sendKeys("Київська обл.");
+        Thread.sleep(2000);
         region.sendKeys(Keys.ARROW_DOWN);
         region.sendKeys(Keys.ENTER);
-
 
         WebElement year = driver.findElements(By.xpath("//label[@for='forYear']")).get(0);
         actions.moveToElement(year).click().build().perform();
 
+        WebElement yearFrom = driver.findElement(By.id("yearFrom"));
+        Select year1Select = new Select(yearFrom);
+        year1Select.selectByValue("2004");
+        Thread.sleep(2000);
 
-     /*   driver.findElement(By.id("yearFrom")).click();
-        WebElement year1 = driver.findElement(By.id("yearFrom"));
-        Select yearSelect1 = new Select(year1);
-        categorySelect.selectByValue("2005");*/
+        WebElement yearTo = driver.findElement(By.id("yearTo"));
+        Select year2Select = new Select(yearTo);
+        year2Select.selectByValue("2020");
 
-  /*      WebElement year2 = driver.findElement(By.id("yearTo"));
-        Select yearSelect2 = new Select(year2);
-        categorySelect.selectByValue("2015");*/
+        WebElement year0 = driver.findElements(By.xpath("//label[@for='forYear']")).get(0);
+        actions.moveToElement(year0).click().build().perform();
 
+        driver.findElement(By.xpath("//label[@for='forPrice']")).click();
+        driver.findElement(By.id("priceFrom")).sendKeys("2000");
+        driver.findElement(By.id("priceTo")).sendKeys("40000");
 
+        driver.findElement(By.xpath("//div[@class='span8 form-search']")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+        driver.quit();
 
     }
 }

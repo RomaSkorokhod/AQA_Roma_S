@@ -35,15 +35,7 @@ public class Test2 {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         driver.findElement(By.id("registration_button")).click();
 
-
-
-
-
-
-
-
-
-
+        driver.quit();
 
     }
 }
